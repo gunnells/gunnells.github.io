@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Combinatorics (Math 513)</title>
+<body bgcolor="#ccff99" text="#000000" link="#0000FF" alink="#FF2020" vlink="#800020">
+</head>
+<body>
+
+<h1 id="combinatoricsmath513">Combinatorics (Math 513)</h1>
+
+<h2 id="instructor">Instructor</h2>
+
+<p>Prof. Paul Gunnells, LGRT 1115L, 545&#8211;6009, gunnells at umass dot edu.
+The best way to contact me is by email. Please don&#8217;t leave a message
+on my office phone; I almost never listen to messages there.</p>
+
+<h2 id="courseoverview">Course overview</h2>
+
+<p>Combinatorics is the mathematical science of counting. The goal of
+this course is to study some techniques in combinatorics; one
+particular emphasis is generating functions. We will study
+applications to various counting problems, including some from graph
+theory.</p>
+
+<h2 id="textbook">Textbook</h2>
+
+<h3 id="requiredtext:">Required text:</h3>
+
+<p><em>Introduction to Enumerative and Analytic Combinatorics, Third Edition</em>
+by Miklos Bona. ISBN: 978&#8211;1482249095.
+<a href="comb_text_contents.html">Table of contents</a>.</p>
+
+<p>Please note that this is the <strong>third</strong> edition of this book.</p>
+
+<p>The textbook is very readable; the author has put a lot of work into
+his exposition, and there are many examples given in detail. There is
+a lot of material in the textbook, way more than we can cover in one
+semester. We will try to cover all of the <em>Methods</em> and <em>Topics</em>
+sections, with possibly some extra material.</p>
+
+<p>It will be presumed that you are reading the relevant sections of the
+textbook outside of class.</p>
+
+<h3 id="recommendedtexts:">Recommended texts:</h3>
+
+<p>We will not follow these sources, but they are excellent and have lots
+of interesting material. Occasionally we may refer to them.</p>
+
+<p><em>Analytic Combinatorics</em>
+by Philippe Flajolet and Robert Sedgewick. ISBN: 978&#8211;0521898065. PDF
+<a href="https://ac.cs.princeton.edu/home/AC.">freely available</a></p>
+
+<p><em>Combinatorics: The Art of Counting (Graduate Studies in Mathematics)</em>
+by Bruce E. Sagan. ISBN: 978&#8211;1470460327. PDF available free from the
+<a href="https://users.math.msu.edu/users/bsagan/">homepage of the author</a>.</p>
+
+<p><em>Enumerative Combinatorics: Volume 1 (Cambridge Studies in Advanced
+Mathematics, Series Number 49) 2nd Edition</em> by Richard P. Stanley.
+ISBN: 978&#8211;1107602625.
+<a href="https://www.ms.uky.edu/~sohum/putnam/enu_comb_stanley.pdf">Freely available</a>
+in draft form.</p>
+
+<h2 id="grading">Grading</h2>
+
+<p>The grading for the course will be as follows. There will be a final
+exam worth 30%, and two exams during the semester each worth 25%. The
+remaining 20% will be based on homework exercises.</p>
+
+<p>After being determined by the above algorithm, the total score will be
+<em>truncated</em> down to the nearest integer less than or equal to the
+total score. (Note that truncation is not the same as rounding. For
+example, a score of 89.75 will be truncated to 89, not rounded to 90.
+This is standard policy in courses offered in the Math and Stat
+Department.) The letter grade will then be determined by the
+following scale:</p>
+
+<table>
+<colgroup>
+<col />
+<col />
+<col />
+<col />
+<col />
+<col />
+<col />
+<col />
+<col />
+<col />
+</colgroup>
+
+<thead>
+<tr>
+	<th> A </th>
+	<th> A&#8211; </th>
+	<th> B+ </th>
+	<th> B </th>
+	<th> B&#8211; </th>
+	<th> C+ </th>
+	<th> C </th>
+	<th> C&#8211; </th>
+	<th> D+ </th>
+	<th>  D </th>
+	<th>  F </th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td> 90 </td>
+	<td> 87 </td>
+	<td>  83 </td>
+	<td> 79 </td>
+	<td> 75 </td>
+	<td> 71 </td>
+	<td> 67 </td>
+	<td> 63 </td>
+	<td> 59 </td>
+	<td> 55 </td>
+	<td> &lt;55 </td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="finalexam">Final Exam</h2>
+
+<p>The final will be cumulative, with some emphasis placed on topics
+covered after the midterm exam. The date and time will be announced
+by the University. The final will only be given during the scheduled
+time.</p>
+
+<h2 id="exams">Exams</h2>
+
+<p>There will be two midterm exams, given in the evening.</p>
+
+<ul>
+<li><p>Tuesday, 14 October, 7&#8211;9pm, location TBA. Request makeup if
+necessary by Tuesday, 30 September.</p></li>
+<li><p>Thursday, 6 November, 7&#8211;9pm, location TBA. Request makeup if
+necessary by Thursday, 23 October.</p></li>
+</ul>
+
+<p>The exam times are 2 hours to take some of the pressure off. It is
+not expected that you will need the full 2 hours to complete them.</p>
+
+<p>Sections covered on an exam, as well as other exam policies, will be
+announced in class some time before the exam date. Some time in the
+lecture before each exam will be devoted to review.</p>
+
+<p>See below for the academic honesty statement about exams.</p>
+
+<h2 id="make-upexamrequest">Make-up exam request</h2>
+
+<p>Re-taking of exams is not allowed in this course: once an exam has
+been taken it cannot be retaken or made up.</p>
+
+<p>You are expected to take all exams, including the final exam, during
+their scheduled times. All students should check your travel plans
+and exam schedules of your courses carefully. If you have any schedule
+conflicts, you may log on the Spire page, go to &#8220;Student Home&#8221; and
+then to &#8220;Evening Exam Conflict&#8221;. This will allow you to fill out a
+conflict form and submit it. Then the registrar will email your
+instructor who needs to provide a makeup exam. Makeup exams should be
+requested at least two weeks before the exam.</p>
+
+<p>Which case and where is the official support document for the make-up
+request?</p>
+
+<p>(1) if you have an exam (or a class) schedule conflicts with the
+regular exam, you should log on the Spire page, go to &#8220;Student Home&#8221;
+and then to &#8220;Evening Exam Conflict&#8221;. This will allow you to fill out a
+conflict form and submit it. Then the registrar will email your
+instructor who needs to provide a makeup exam.</p>
+
+<p>(2) if you have a university trip for university business during the
+regular exam date, like an athletic competition or academic conference
+etc., you should ask your supervisor or your coach to write an
+explanation letter including his/her phone number to your instructor
+as the official written document. Your instructor may verify the event
+by phone call.</p>
+
+<p>(3) if you have a religious observance on a regular exam date and can
+NOT take the exam, you should write an explanation letter yourself and
+attach the invitation letter or relevant information as the official
+document.</p>
+
+<p>(4) if you have a medical reason and can not take the regular exam,
+you should ask a medical professional&#8217;s statement including his/her
+phone number which indicates that you were unable for medical reason
+to take the scheduled exam. If the medical professional&#8217;s statement is
+not given before the exam, your instructor may refuse your make-up
+request.</p>
+
+<h2 id="computing">Computing</h2>
+
+<p>This is not a programming course, and assignments will not require
+coding. However many computations for examples and problems will
+benefit from using a computer. For an overview of software
+you might find useful, see <a href="comb_computation.html">here</a>.</p>
+
+<h2 id="problemsets">Problem Sets</h2>
+
+<p>Problem sets will be assigned on the <a href="comb.html">main course page</a>;
+method of collection will be determined once we have a grader. Late
+problem sets will not be accepted for any reason. At the end of the
+term, a few problem set grades will be dropped, so missing one or two
+problem set submissions shouldn&#8217;t affect your grade.</p>
+
+<p>Only selected problems (randomly chosen by me) will be graded. The
+book contains some exercises with complete solutions for self-study.
+These will be part of the homework, but they will not be graded.</p>
+
+<p>I encourage you to form study groups and to work on the problem sets
+together. In fact you will learn a lot more about the material
+through discussing it with your fellow students. However, there are a
+few guidelines to follow:</p>
+
+<ul>
+<li><p>Remember that ultimately you&#8217;ll be taking exams by yourself, so if
+you choose to work with others, make sure that you&#8217;re understanding
+what&#8217;s going on.</p></li>
+<li><p>If you do work with other students, you are responsible for writing
+up the problems yourself in your own words. In other words, your
+solution must be sunmitted separately; there are no group homework
+submissions allowed.</p></li>
+<li><p>If you do work with your students on a problem set, you must
+indicate this on the first page of your HW submission. Please
+include the names of the students you worked with. This alerts the
+grader that some of your solutions may closely resemble other
+students and that there is nothing amiss.</p></li>
+<li><p>It is expressly forbidden to use means that do not represent your
+own work (such as, but not limited to, generative AI and copying
+solutions from online forums) to complete problem sets. (See the
+academic honesty statement below for more info.)</p></li>
+</ul>
+
+<p>Successful completion of the problem sets is essential to help you
+monitor your progress in the course. The homework problems will be
+very similar to problems that appear on exams. Please don&#8217;t postpone
+working on the problems; try to take a look at them shortly after the
+material is covered in class.</p>
+
+<h2 id="help">Help</h2>
+
+<p>I try to answer as many questions as possible during lecture. If you
+have a question, don&#8217;t be afraid to ask. Chances are other students
+also have the same question. I also usually stick around a few
+minutes after class to answer quick questions (such as questions about
+parts of the lecture, a homework problem you&#8217;ve tried, etc.). Most
+students find this to be a good way to clear up confusion.</p>
+
+<p>Outside of class, the best way to get help is through my office hours.
+Sometimes only a little bit of consultation is all that&#8217;s needed to
+deal with difficulties. One thing to remember is that you will get
+much more out of office hours if you make a serious effort to do the
+problem on your own first.</p>
+
+<p>Although I like to get a lot of questions from students, it is not
+possible to answer mathematical questions by email. Please don&#8217;t be
+offended if you ask me a mathematical question by email and I don&#8217;t
+respond. I&#8217;ve found in the past that trying to discuss mathematics by
+email rarely helps anyone, and usually only causes more confusion.
+It&#8217;s much more effective to ask me such questions during class or
+office hours.</p>
+
+<h2 id="specialaccommodation">Special Accommodation</h2>
+
+<p>The University of Massachusetts Amherst is committed to making
+reasonable, effective and appropriate accommodations to meet the needs
+of students with disabilities and help create a barrier-free
+campus. If you have a disability and require accommodations, please
+register with Disability Services (161 Whitmore Administration
+building; phone 413&#8211;545&#8211;0892), meet with an Access Coordinator and
+send an accommodation letter to your faculty. Information on services
+and materials for registering are also available on the website
+www.umass.edu/disability.</p>
+
+<p>Special accommodation request: new disability students should be
+certified by Umass disability service center (DSC) at first, then you
+should ask DSC to send the special accommodation documents to your
+instructor at least two weeks before exam 1 or exam 2, after that you
+may contact DSC,</p>
+
+<pre><code>Trisha Link
+Exam Proctoring Coordinator
+examsaccess@admin.umass.edu
+413-545-0892
+169A Whitmore
+</code></pre>
+
+<p>directly to schedule an appointment, DSC will notify you when and
+where to take the exam in a few days before the exam . For the
+documented disability students, DSC will notify you when you should
+schedule the final exam in DSC.</p>
+
+<h2 id="academichonestystatement">Academic Honesty Statement</h2>
+
+<p>Since the integrity of the academic enterprise of any institution of
+higher education requires honesty in scholarship and research,
+academic honesty is required of all students at the University of
+Massachusetts Amherst. Academic dishonesty is prohibited in all
+programs of the University. Academic dishonesty includes but is not
+limited to: cheating, fabrication, plagiarism, and facilitating
+dishonesty. Appropriate sanctions may be imposed on any student who
+has committed an act of academic dishonesty. Instructors should take
+reasonable steps to address academic misconduct. Any person who has
+reason to believe that a student has committed academic dishonesty
+should bring such information to the attention of the appropriate
+course instructor as soon as possible. Instances of academic
+dishonesty not related to a specific course should be brought to the
+attention of the appropriate department Head or Chair. Since students
+are expected to be familiar with this policy and the commonly accepted
+standards of academic integrity, ignorance of such standards is not
+normally sufficient evidence of lack of intent. For more information
+see the website of
+<a href="http://www.umass.edu/dean_students/codeofconduct/acadhonesty/">Dean of Students Office</a>.</p>
+
+<p>Expectations for our course as as follows:</p>
+
+<ul>
+<li><p>For homework, as discussed above, you will be allowed to work with
+other students collaboratively. In fact, I encourage you to form
+study groups to work together. However, it is your responsibility
+to make sure that you are learning the material. You also must
+submit your own work, indicating if you collaborated with any other
+students.</p></li>
+<li><p>The written work you submit must be original. The use of online or
+other sources for solutions, or the use of generative AI tools such
+as ChatGPT to produce or write solutions will be considered a
+violation of academic honesty. Generative AI usage for other means
+related to the course (like as a study partner, sounding board,
+etc.) is not considered a violation, but it is the responsibility of
+the student to verify the accuracy of any content used in that
+context. (You&#8217;re much better off just reading something written by
+a reputable source, or collaborating with other students in the
+course, in my opinion.)</p></li>
+<li><p>All exams will be done in-person and are closed book: no
+supplemental materials such as the textbook or notes may be used.
+Devices such as phones, watches, calculators, and computers, are not
+allowed to be used during exams. Of course no communication between
+students in any form is allowed during exams. Use of any
+unauthorized resources will be considered a violation of academic
+honesty and will be handled accordingly.</p></li>
+</ul>
+
+</body>
+</html>
+

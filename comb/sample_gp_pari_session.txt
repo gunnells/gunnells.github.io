@@ -1,0 +1,105 @@
+\\ lines prefixed with \\ are comments
+
+                                     GP/PARI CALCULATOR Version 2.12.1 (development 24911-d56f491)
+                                     amd64 running linux (x86-64/GMP-6.1.2 kernel) 64-bit version
+                                            compiled: Jan  6 2020, gcc version 9.1.0 (GCC)
+                                                       threading engine: single
+                                            (readline v6.3 enabled, extended help enabled)
+
+                                                Copyright (C) 2000-2019 The PARI Group
+
+PARI/GP is free software, covered by the GNU General Public License, and comes WITHOUT ANY WARRANTY WHATSOEVER.
+
+Type ? for help, \q to quit.
+Type ?17 for how to get moral (and possibly technical) support.
+
+parisize = 2000000000, primelimit = 500000
+\\ simple
+(17:17) gp > 2+2
+%1 = 4
+\\ not as simple
+(17:18) gp > 10!
+%2 = 3628800
+\\ even less simple, but no problem for gp-pari (the result is essentially instantaneous)
+(17:18) gp > 100!
+%3 = 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
+\\ a healthy power of 2
+(17:18) gp > 2^100
+%4 = 1267650600228229401496703205376
+\\ a vector of powers of 2
+(17:18) gp > v=vector(10,i,2^i)
+%5 = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
+\\ oops forgot 2^0
+(17:18) gp > v=vector(10,i,2^(i-1))
+%6 = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+\\ add them up
+(17:19) gp > vecsum(v)
+%7 = 1023
+\\ a different way to add them up
+(17:19) gp > sum(i=1,10,2^(i-1))
+%8 = 1023
+\\ yet another way to add them up
+(17:19) gp > s=0;for(i=1,10,s+=2^(i-1));s
+%9 = 1023
+\\ the following computations show how to use gp-pari to generate various power series.  this will be important
+\\ later in the term.
+\\ a rational function
+(17:20) gp > f=1/(1-x-x^2)
+%10 = 1/(-x^2 - x + 1)
+\\ taylor series of this function
+(17:20) gp > taylor(f,x)
+%13 = 1 + x + 2*x^2 + 3*x^3 + 5*x^4 + 8*x^5 + 13*x^6 + 21*x^7 + 34*x^8 + 55*x^9 + 89*x^10 + 144*x^11 + 233*x^12 + 377*x^13 + 610*x^14 + 987*x^15 + O(x^16)
+\\ what kind of precision we have for power series
+(17:21) gp > \ps
+   seriesprecision = 16 significant terms
+\\ let's make it bigger
+(17:21) gp > \ps30
+   seriesprecision = 30 significant terms
+\\ now we get more terms
+(17:21) gp > taylor(f,x)
+%14 = 1 + x + 2*x^2 + 3*x^3 + 5*x^4 + 8*x^5 + 13*x^6 + 21*x^7 + 34*x^8 + 55*x^9 + 89*x^10 + 144*x^11 + 233*x^12 + 377*x^13 + 610*x^14 + 987*x^15 + 1597*x^16 + 2584*x^17 + 4181*x^18 + 6765*x^19 + 10946*x^20 + 17711*x^21 + 28657*x^22 + 46368*x^23 + 75025*x^24 + 121393*x^25 + 196418*x^26 + 317811*x^27 + 514229*x^28 + 832040*x^29 + O(x^30)
+\\ the coefficients have combinatorial meaning.  let's look at them.  here the % character refers to the previous output.
+\\ you can also use %5, say, to refer to the output %5 above.
+(17:21) gp > Vec(%)
+%17 = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040]
+\\ do you recognize them?  if not type the first seven or so terms into the search box at oeis.org.  you should find
+\\ series A000045 there.  
+\\ now we define a function.  binomial(n,k) is, as you might guess, the binomial coefficient n choose k.
+\\ for some esoteric reason we take 2 to a certain binomial coefficient.
+(17:21) gp > f(n)=2^binomial(n,2)
+%18 = (n)->2^binomial(n,2)
+\\ a short list of values of f
+(17:22) gp > v=vector(10,i,f(i))
+%19 = [1, 2, 8, 64, 1024, 32768, 2097152, 268435456, 68719476736, 35184372088832]
+\\ another way to produce this list
+(17:22) gp > apply(f,vector(10,i,i))
+%20 = [1, 2, 8, 64, 1024, 32768, 2097152, 268435456, 68719476736, 35184372088832]
+\\ now a computation with these numbers.  this makes an infinite series out of them, but the coefficient of x^i is also
+\\ divided by i!.  (we will see why during the term.)
+(17:22) gp > g=sum(i=0,20,f(i)/i!*x^i)+O(x^21)
+%21 = 1 + x + x^2 + 4/3*x^3 + 8/3*x^4 + 128/15*x^5 + 2048/45*x^6 + 131072/315*x^7 + 2097152/315*x^8 + 536870912/2835*x^9 + 137438953472/14175*x^10 + 140737488355328/155925*x^11 + 72057594037927936/467775*x^12 + 295147905179352825856/6081075*x^13 + 1208925819614629174706176/42567525*x^14 + 19807040628566084398385987584/638512875*x^15 + 40564819207303340847894502572032/638512875*x^16 + 2658455991569831745807614120560689152/10854718875*x^17 + 174224571863520493293247799005065324265472/97692469875*x^18 + 45671926166590716193865151022383844364247891968/1856156927625*x^19 + 5986310706507378352962293074805895248510699696029696/9280784638125*x^20 + O(x^21)
+\\ now we take the logarithm of this series.  if you think back to math 132, there is a power series for log(1+u), and
+\\ gp-pari is using it to perform the computation.
+(17:23) gp > log(g)
+%22 = x + 1/2*x^2 + 2/3*x^3 + 19/12*x^4 + 91/15*x^5 + 1669/45*x^6 + 16663/45*x^7 + 15721787/2520*x^8 + 517939774/2835*x^9 + 269503817147/28350*x^10 + 19889317828657/22275*x^11 + 143270695716341059/935550*x^12 + 42030162200008940981/868725*x^13 + 2413719542021917710245011/85135050*x^14 + 19788906707876211052055544602/638512875*x^15 + 648720194499894141117353020920619/10216206000*x^16 + 1718013180051722123342293618891817/7016625*x^17 + 174200645758583409252756870814716307361521/97692469875*x^18 + 593098907788129145113468770639571932598652267/24105934125*x^19 + 23944329387503148594002490392727181637052688343273993/37123138552500*x^20 + O(x^21)
+\\ what are these numbers?  we can get rid of the factorials using the function serlaplace.
+\\ (type ?serlaplace to read its documentation)
+(17:24) gp > serlaplace(%)
+%23 = x + x^2 + 4*x^3 + 38*x^4 + 728*x^5 + 26704*x^6 + 1866256*x^7 + 251548592*x^8 + 66296291072*x^9 + 34496488594816*x^10 + 35641657548953344*x^11 + 73354596206766622208*x^12 + 301272202649664088951808*x^13 + 2471648811030443735290891264*x^14 + 40527680937730480234609755344896*x^15 + 1328578958335783201008338986845427712*x^16 + 87089689052447182841791388989051400978432*x^17 + 11416413520434522308788674285713247919244640256*x^18 + 2992938411601818037370034280152893935458466172698624*x^19 + 1569215570739406346256547210377768575765884983264804405248*x^20 + O(x^21)
+\\ convert the series into a vector to make the coefficients more visible
+(17:24) gp > Vec(%)
+%24 = [1, 1, 4, 38, 728, 26704, 1866256, 251548592, 66296291072, 34496488594816, 35641657548953344, 73354596206766622208, 301272202649664088951808, 2471648811030443735290891264, 40527680937730480234609755344896, 1328578958335783201008338986845427712, 87089689052447182841791388989051400978432, 11416413520434522308788674285713247919244640256, 2992938411601818037370034280152893935458466172698624, 1569215570739406346256547210377768575765884983264804405248]
+\\ now type some of these into oeis.org.  you should find series A001187.  you can see that these numbers
+\\ count something interesting.
+\\ another series of numbers:
+(17:25) gp > f=prod(i=1,20,1/(1-x^i)+O(x^21))
+%25 = 1 + x + 2*x^2 + 3*x^3 + 5*x^4 + 7*x^5 + 11*x^6 + 15*x^7 + 22*x^8 + 30*x^9 + 42*x^10 + 56*x^11 + 77*x^12 + 101*x^13 + 135*x^14 + 176*x^15 + 231*x^16 + 297*x^17 + 385*x^18 + 490*x^19 + 627*x^20 + O(x^21)
+\\ make them into a vector
+(17:25) gp > Vec(%)
+%26 = [1, 1, 2, 3, 5, 7, 11, 15, 22, 30, 42, 56, 77, 101, 135, 176, 231, 297, 385, 490, 627]
+\\ these can be searched on oeis.org.  we find series A000041, the partition numbers.  gp-pari also has a
+\\ built-in function to compute these
+(17:27) gp > vector(20,i,numbpart(i))
+%28 = [1, 2, 3, 5, 7, 11, 15, 22, 30, 42, 56, 77, 101, 135, 176, 231, 297, 385, 490, 627]
+\\ all done
+(17:27) gp > \q
